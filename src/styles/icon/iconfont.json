@@ -1,0 +1,170 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7008921",
+      "name": "document_fill",
+      "font_class": "document_fill",
+      "unicode": "e6f3",
+      "unicode_decimal": 59123
+    },
+    {
+      "icon_id": "7008937",
+      "name": "flashlight",
+      "font_class": "flashlight",
+      "unicode": "e6fc",
+      "unicode_decimal": 59132
+    },
+    {
+      "icon_id": "7008938",
+      "name": "flashlight_fill",
+      "font_class": "flashlight_fill",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "7008942",
+      "name": "group",
+      "font_class": "group",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "7008943",
+      "name": "group_fill",
+      "font_class": "group_fill",
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "7008946",
+      "name": "homepage_fill",
+      "font_class": "homepage_fill",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "7008947",
+      "name": "homepage",
+      "font_class": "homepage",
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    },
+    {
+      "icon_id": "7008977",
+      "name": "other",
+      "font_class": "other",
+      "unicode": "e714",
+      "unicode_decimal": 59156
+    },
+    {
+      "icon_id": "7008978",
+      "name": "people_fill",
+      "font_class": "people_fill",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "7008979",
+      "name": "people",
+      "font_class": "people",
+      "unicode": "e716",
+      "unicode_decimal": 59158
+    },
+    {
+      "icon_id": "7009003",
+      "name": "service_fill",
+      "font_class": "service_fill",
+      "unicode": "e727",
+      "unicode_decimal": 59175
+    },
+    {
+      "icon_id": "7009004",
+      "name": "service",
+      "font_class": "service",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
+      "icon_id": "7009005",
+      "name": "setup_fill",
+      "font_class": "setup_fill",
+      "unicode": "e729",
+      "unicode_decimal": 59177
+    },
+    {
+      "icon_id": "7009006",
+      "name": "setup",
+      "font_class": "setup",
+      "unicode": "e72a",
+      "unicode_decimal": 59178
+    },
+    {
+      "icon_id": "7009040",
+      "name": "workbench_fill",
+      "font_class": "workbench_fill",
+      "unicode": "e73e",
+      "unicode_decimal": 59198
+    },
+    {
+      "icon_id": "7009041",
+      "name": "workbench",
+      "font_class": "workbench",
+      "unicode": "e73f",
+      "unicode_decimal": 59199
+    },
+    {
+      "icon_id": "7009050",
+      "name": "wangwang_fill",
+      "font_class": "wangwang",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "11121432",
+      "name": "表单",
+      "font_class": "biaodan",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "11121442",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "11121462",
+      "name": "我的账户",
+      "font_class": "wodezhanghu",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "11121464",
+      "name": "数据提供涞源",
+      "font_class": "shujutigonglaiyuan",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "11121497",
+      "name": "公共引用模块",
+      "font_class": "gonggongyinyongmokuai",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "11121517",
+      "name": "可视区域",
+      "font_class": "keshiquyu",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    }
+  ]
+}
