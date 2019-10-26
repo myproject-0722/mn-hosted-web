@@ -1,25 +1,6 @@
 <template>
   <div class="login">
     <div class="container">
-      <!-- <div class="title">久零运营管理后台</div>
-      <el-form
-        :model="loginForm"
-        :rules="rules"
-        ref="ruleForm"
-        label-width="80px"
-        class="demo-ruleForm"
-        :label-position="labelPosition"
-      >
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="loginForm.username"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input v-model="loginForm.password" show-password @keydown.enter.native="login_btn"></el-input>
-        </el-form-item>
-
-        <el-button type="primary" class="login_btn" @click="login_btn">登录</el-button>
-
-      </el-form>-->
       <el-row>
         <el-col :span="10">
           <div class="grid-content">
@@ -42,25 +23,9 @@
                   />
                 </svg>
                 <div class="title">
-                  <span>久零运营管理后台</span>
+                  <span>久零主节点托管平台</span>
                 </div>
               </div>
-              <!-- <div class="loginFrom">
-                <el-form>
-                  <el-form-item label="用户名" prop="username">
-                    <el-input v-model="loginForm.username"></el-input>
-                  </el-form-item>
-                  <el-form-item label="密码" prop="password">
-                    <el-input
-                      v-model="loginForm.password"
-                      show-password
-                      @keydown.enter.native="login_btn"
-                    ></el-input>
-                  </el-form-item>
-
-                  <el-button type="primary" class="login_btn" @click="login_btn">登录</el-button>
-                </el-form>
-              </div>-->
               <div class="login-form">
                 <el-form ref="ruleForm" :model="loginForm" :rules="rules">
                   <el-form-item prop="username">
@@ -93,8 +58,8 @@ export default {
     return {
       labelPosition: 'left',
       loginForm: {
-        username: '90admin',
-        password: '999000'
+        username: 'lixu',
+        password: '123456'
       },
       rules: {
         username: [

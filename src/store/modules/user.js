@@ -1,10 +1,14 @@
 import { login, logout } from '@/api/admin'
 
 const state = {
+  userid: 0,
   token: ''
 }
 
 const mutations = {
+  SET_USERID: (state, userid) => {
+    state.userid = userid
+  },
   SET_TOKEN: (state, token) => {
     state.token = token
   },
@@ -23,11 +27,12 @@ const actions = {
     return new Promise((resolve, reject) => {
       login(username, password).then(res => {
         console.log(res)
-        if (res.success) {
-          commit('SET_TOKEN', res.t)
-          return resolve(res.t)
+        if (res.rescode === 200) {
+          commit('SET_USERID', res.id)
+          commit('SET_TOKEN', res.token)
+          return resolve(res.token)
         } else {
-          return reject(res.message)
+          return reject(res.msg)
         }
       })
         .catch(err => {
