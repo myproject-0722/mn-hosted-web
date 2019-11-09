@@ -2,19 +2,6 @@
   <el-row :gutter="40" class="panel-group">
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-people">
-          <i class="iconfont icon-shujutigonglaiyuan home-icon" ></i>
-        </div>
-        <div class="card-panel-description">
-          <div class="card-panel-text">
-            上链数据
-          </div>
-          <count-to :start-val="0" :end-val="dataCount" :duration="2000" class="card-panel-num" />
-        </div>
-      </div>
-    </el-col>
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-message">
           <i class="iconfont icon-gonggongyinyongmokuai home-icon" ></i>
         </div>
@@ -26,70 +13,26 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-money">
-          <i class="iconfont icon-wodezhanghu home-icon" ></i>
-        </div>
-        <div class="card-panel-description">
-          <div class="card-panel-text">
-            用户数量
-          </div>
-          <count-to :start-val="0" :end-val="userCount" :duration="2000" class="card-panel-num" />
-        </div>
-      </div>
-    </el-col>
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-shopping">
-          <i class="iconfont icon-biaodan home-icon" ></i>
-        </div>
-        <div class="card-panel-description">
-          <div class="card-panel-text">
-            订单数量
-          </div>
-          <count-to :start-val="0" :end-val="orderCount" :duration="2000" class="card-panel-num" />
-        </div>
-      </div>
-    </el-col>
   </el-row>
 </template>
 
 <script>
 import CountTo from 'vue-count-to'
-import { selectDataCount, selectOrderCount, selectNodeCount, selectUserCount } from '@/api/bi'
+import { selectNodeCount } from '@/api/bi'
 export default {
   components: {
     CountTo
   },
   data () {
     return {
-      dataCount: 0,
-      orderCount: 0,
-      nodeCount: 0,
-      userCount: 0
+      nodeCount: 0
     }
   },
   methods: {
     init () {
-      selectDataCount().then(res => {
-        if (res.success) {
-          this.dataCount = res.t
-        }
-      })
-      selectOrderCount().then(res => {
-        if (res.success) {
-          this.orderCount = res.t
-        }
-      })
       selectNodeCount().then(res => {
         if (res.success) {
           this.nodeCount = res.t
-        }
-      })
-      selectUserCount().then(res => {
-        if (res.success) {
-          this.userCount = res.t
         }
       })
     }

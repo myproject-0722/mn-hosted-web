@@ -18,11 +18,11 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // console.log(config)
-    config.headers['adminToken'] = store.getters.token
+    config.headers['token'] = store.getters.token
     // config.headers['adminToken'] = '2191941b86c745e8bec75ca833202dbc';
-    config.headers = _kongAuth(config.headers)
-    config.headers['Access-Control-Allow-Origin'] = 'http://192.168.0.157:8000/'
-    console.log(config)
+    //config.headers = _kongAuth(config.headers)
+    //config.headers['Access-Control-Allow-Origin'] = 'http://192.168.0.157:8000/'
+    //console.log(config)
     // console.log(JSON.parse(sessionStorage.getItem('store')).user.token)
     // config.headers.adminToken = JSON.parse(sessionStorage.getItem('store')).user.token;
     return config

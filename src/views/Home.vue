@@ -22,7 +22,7 @@
 
           <div class="title">
             <span>
-              <span class="titleInfo">久零</span> 运营管理
+              <span class="titleInfo">久零</span> 主节点管理
             </span>
           </div>
         </div>
@@ -71,7 +71,7 @@
               <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
               <el-breadcrumb-item v-for="item in nowMenuList" :key="item.name">{{item}}</el-breadcrumb-item>
             </el-breadcrumb>
-            <div class="info">这是一条提醒信息</div>
+            <!--<div class="info">这是一条提醒信息</div>-->
           </div>
         </div>
         <div class="header_right">
@@ -92,28 +92,6 @@
                   stroke="transparent"
                 />
               </svg>
-            </a>
-          </div>
-          <div class="message">
-            <a>
-              <div data-v-0b7f252a data-v-a2f0deea class="el-badge notice-area">
-                <svg
-                  data-v-0b7f252a
-                  version="1.1"
-                  role="presentation"
-                  width="25.599999999999998"
-                  height="25.599999999999998"
-                  viewBox="0 0 1024 1024"
-                  class="svg-icon active"
-                  style="font-size: 2.8em;"
-                >
-                  <path
-                    d="M889.92 749.728c-1.184-1.632-119.232-166.144-119.232-287.392 0-168.448-76.16-254.784-162.688-287.008L608 160c0-52.928-43.072-96-96-96s-96 43.072-96 96l0 16.576c-10.784 7.904-16.096 21.792-11.808 35.232 5.376 16.832 23.424 26.048 40.224 20.736C462.176 226.88 481.344 224 501.312 224l21.376 0c115.232 0 184 89.088 184 238.304 0 108.032 72.896 235.392 110.176 293.504C759.488 781.984 633.824 832 512 832c-121.504 0-247.424-50.368-304.832-76.64 37.312-57.984 110.144-185.024 110.144-293.056 0-62.432 11.616-114.208 34.528-153.92 8.832-15.328 3.584-34.88-11.712-43.712-15.392-8.864-34.88-3.584-43.712 11.712-28.608 49.536-43.104 112.096-43.104 185.92 0 121.216-118.016 285.248-119.2 286.88-5.408 7.456-7.36 16.928-5.312 25.952 2.048 8.96 7.872 16.672 16 21.024 5.664 3.072 107.392 57.28 233.536 84.512C399.744 947.072 452.16 992 512 992s112.256-44.928 133.632-111.296c126.112-27.104 227.84-80.992 233.504-84.032 8.128-4.352 14.016-12.032 16.064-21.024S895.328 757.216 889.92 749.728zM501.312 160C494.048 160 487.104 160.992 480 161.568L480 160c0-17.632 14.368-32 32-32s32 14.368 32 32l0 0.928C536.832 160.32 529.728 160 522.688 160L501.312 160zM512 928c-22.336 0-43.136-13.408-57.984-35.296C473.216 894.72 492.608 896 512 896s38.784-1.28 57.984-3.296C555.136 914.624 534.304 928 512 928z"
-                    stroke="transparent"
-                  />
-                </svg>
-                <sup class="el-badge__content el-badge__content--undefined is-fixed is-dot"></sup>
-              </div>
             </a>
           </div>
           <div class="full" @click="handleFullScreen">
@@ -137,7 +115,7 @@
           </div>
           <el-dropdown trigger="click" style="cursor: pointer;">
             <span class="el-dropdown-link">
-              admin
+              我的
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -218,77 +196,13 @@ export default {
       isCollapse: false,
       menuList: [
         {
-          id: 4,
-          name: '用户管理',
-          path: '',
-          icon: 'icon-group',
-          children: [
-            { id: 50, name: '会员管理', path: '/home/user' },
-            { id: 51, name: '客户管理', path: '/home/customer' }
-          ]
-        },
-        {
-          id: 5,
-          name: '产品信息',
-          path: '',
-          icon: 'icon-document_fill',
-          children: [
-            { id: 52, name: '产品管理', path: '/home/product' },
-            { id: 53, name: '活动管理', path: '/home/productActivity' }
-          ]
-        },
-        {
-          id: 6,
-          name: '内容管理',
-          path: '',
-          icon: 'icon-service',
-          children: [
-            { id: 54, name: '内容列表', path: '/home/content' },
-            { id: 55, name: '主题列表', path: '/home/theme' },
-            { id: 56, name: '模版列表', path: '/home/model' },
-            { id: 66, name: '内容编辑', path: '/home/contentEdit', hide: false }
-          ]
-        },
-        {
-          id: 8,
-          name: '销售管理',
-          path: '',
-          icon: 'icon-service',
-          children: [
-            { id: 57, name: '销售订单', path: '/home/orderList' }
-          ]
-        },
-        {
           id: 9,
-          name: '节点管理',
+          name: '主节点托管',
           path: '',
           icon: 'icon-service',
           children: [
-            { id: 58, name: '节点列表', path: '/home/nodesList' },
-            { id: 65, name: '节点磁盘', path: '/home/nodeDiskList' }
-          ]
-        },
-        {
-          id: 10,
-          name: '基金管理',
-          path: '',
-          icon: 'icon-service',
-          children: [
-            { id: 64, name: '基金列表', path: '/home/fundList' },
-            { id: 59, name: '绩效基金', path: '/home/fundAccount' },
-            { id: 62, name: '交易详情', path: '/home/fundDealDetails', hide: false },
-            { id: 63, name: '绩效详情', path: '/home/fundPerformanceDetails', hide: false }
-          ]
-        },
-        {
-          id: 11,
-          name: '系统管理',
-          path: '',
-          icon: 'icon-flashlight',
-          children: [
-            { id: 60, name: '系统参数', path: '/home/sysParameter' },
-            // { id: 11, name: "系统日志", path: "/home/productActivity" },
-            { id: 61, name: '日志管理', path: '/home/log' }
+            { id: 57, name: '区块货币列表', path: '/home/coinsList' },
+            { id: 58, name: '主节点列表', path: '/home/masternodeList' }
           ]
         }
       ]

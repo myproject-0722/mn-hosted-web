@@ -30,9 +30,20 @@ export function login (account, passwd) {
   }) */
 }
 
-export function logout (id) {
+export function logout (userid, token) {
+  const data = {
+    'userid': userid,
+    'token': token
+  };
   return request({
-    url: '/sys-90/admin/sms/user/userstaus/' + id,
-    method: 'post'
+    url: 'user/User/SignOut',
+    method: 'post',
+    params: data,
+    transformRequest: [function () {
+      return JSON.stringify(data)
+    }],
+    headers: {
+      'Content-Type': 'application/json;'
+    }
   })
 }

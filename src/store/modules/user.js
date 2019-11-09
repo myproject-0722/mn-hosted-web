@@ -1,4 +1,4 @@
-import { login, logout } from '@/api/admin'
+import { login, logout } from '@/api/user'
 
 const state = {
   userid: 0,
@@ -43,7 +43,7 @@ const actions = {
 
   // user logout
   logout ({ commit }) {
-    logout().then(res => {
+    logout(userid, token).then(res => {
       console.log(res)
       commit('SET_TOKEN', '')
     })

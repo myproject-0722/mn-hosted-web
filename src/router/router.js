@@ -20,8 +20,9 @@ import contentEdit from '@/views/cms/contentEdit.vue'
 
 import sysParameter from '@/views/sys/sysParameter'
 
-import nodesList from '@/views/node/nodesList'
-import nodeDiskList from '@/views/node/nodesDiskList'
+import coinsList from '@/views/node/coinsList'
+import masternodeList from '@/views/node/masternodeList'
+import dashcore from '@/views/node/dashcore'
 
 import orderList from '@/views/sale/orderList'
 
@@ -107,14 +108,19 @@ var router = new Vuerouter({
           component: log
         },
         {
-          name: 'nodesList',
-          path: '/home/nodesList',
-          component: nodesList
+          name: 'coinsList',
+          path: '/home/coinsList',
+          component: coinsList
         },
         {
-          name: 'nodeDiskList',
-          path: '/home/nodeDiskList',
-          component: nodeDiskList
+          name: 'dashcore',
+          path: '/home/dashcore',
+          component: dashcore
+        },
+        {
+          name: 'masternodeList',
+          path: '/home/masternodeList',
+          component: masternodeList
         },
         {
           name: 'orderList',
