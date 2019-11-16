@@ -5,11 +5,13 @@
     <el-table v-loading="tbLoading" :data="coinsList" border style="width: 100%; margin-top:5px">
       <el-table-column prop="coinName" label="coinName"  align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="MNRequired" label="主节点质押费用"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MNPrice" label="MNPrice" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="volume" label="volume" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="DPrice" label="托管费用(天)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MPrice" label="托管费用(月)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="YPrice" label="托管费用(年)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <!-- <el-table-column prop="volume" label="volume" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="roi" label="收益率" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="monthlyIncome" label="月收益" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MNHosted" label="主节点托管数" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MNHosted" label="主节点托管数" align="center" :show-overflow-tooltip='true'></el-table-column> -->
       <el-table-column label="" min-width="250" align="center">
         <template slot-scope="scope">
           <el-link :href="'/home/'+scope.row.coinName+''" type="primary">添加{{scope.row.coinName}}主节点</el-link>

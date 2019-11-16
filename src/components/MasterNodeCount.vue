@@ -1,24 +1,12 @@
 <template>
   <el-row :gutter="40" class="panel-group">
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-message">
-          <i class="iconfont icon-gonggongyinyongmokuai home-icon" ></i>
-        </div>
-        <div class="card-panel-description">
-          <div class="card-panel-text">
-            节点总计
-          </div>
-          <count-to :start-val="0" :end-val="nodeCount" :duration="2000" class="card-panel-num" />
-        </div>
-      </div>
-    </el-col>
+    您拥有的主节点数量: {{nodeCount}}
   </el-row>
 </template>
 
 <script>
 import CountTo from 'vue-count-to'
-import { selectNodeCount } from '@/api/bi'
+import { getcount } from '@/api/masternode'
 export default {
   components: {
     CountTo
@@ -30,9 +18,16 @@ export default {
   },
   methods: {
     init () {
-      selectNodeCount().then(res => {
-        if (res.success) {
-          this.nodeCount = res.t
+      getcount().then(res => {
+        if (res) {
+          if (res.count === undefined) {
+            //this.$message.error('getcount:' + 0)
+            this.nodeCount = 0
+          }
+          else {
+            this.nodeCount = res.count
+            //this.$message.error('getcount:' + res.count)
+          }
         }
       })
     }

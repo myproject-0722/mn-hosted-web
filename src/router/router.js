@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuerouter from 'vue-router'
 import Login from '@/views/Login.vue'
+import Register from '@/views/Register.vue'
 import Home from '@/views/Home.vue'
 import wel from '@/views/welcome.vue'
 import user from '@/views/user/index.vue'
@@ -38,13 +39,18 @@ var router = new Vuerouter({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      redirect: '/login'
+      path: '/'//,
+      //redirect: '/login'
     },
     {
       name: 'login',
       path: '/login',
       component: Login
+    },
+    {
+      name: 'register',
+      path: '/register',
+      component: Register
     },
     {
       name: 'home',

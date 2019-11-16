@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="register">
     <div class="container">
       <el-row>
         <el-col :span="10">
@@ -26,19 +26,19 @@
                   <span>久零主节点托管平台</span>
                 </div>
               </div>
-              <div class="login-form">
-                <el-form ref="ruleForm" :model="loginForm" :rules="rules">
+              <div class="register-form">
+                <el-form ref="ruleForm" :model="registerForm" :rules="rules">
                   <el-form-item prop="username">
-                    <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+                    <el-input v-model="registerForm.username" placeholder="请输入用户名"></el-input>
                   </el-form-item>
                   <el-form-item prop="password">
-                    <el-input type="password" v-model="loginForm.password" placeholder="请输入密码" @keydown.enter.native="login_btn"></el-input>
+                    <el-input type="password" v-model="registerForm.password" placeholder="请输入密码" @keydown.enter.native="register_btn"></el-input>
                   </el-form-item>
                   <el-form-item class="btn">
-                    <el-button type="success" style="width:100%;" @click="login_btn">登录</el-button>
+                    <el-button type="success" style="width:100%;" @click="register_btn">注册</el-button>
                   </el-form-item>
                   <el-form-item>
-                    没有账号?<el-link :href="'/' + 'register'" type="primary">注册</el-link>
+                    已有账号?<el-link :href="'/' + 'login'" type="primary">登录</el-link>
                   </el-form-item>
                 </el-form>
               </div>
@@ -60,9 +60,9 @@ export default {
   data () {
     return {
       labelPosition: 'left',
-      loginForm: {
-        username: 'lixu',
-        password: '123456'
+      registerForm: {
+        username: '',
+        password: ''
       },
       rules: {
         username: [
@@ -73,9 +73,9 @@ export default {
     }
   },
   methods: {
-    login_btn () {
+    register_btn () {
       this.$store
-        .dispatch('user/login', this.loginForm)
+        .dispatch('user/register', this.registerForm)
         .then(res => {
           this.$router.push({ name: 'home' })
         })
@@ -87,7 +87,7 @@ export default {
 }
 </script>
 <style lang="less" scope>
-.login {
+.register {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -108,7 +108,7 @@ export default {
     //   text-align: center;
     //   font-size: 20px;
     // }
-    // .login_btn {
+    // .register_btn {
     //   width: 100%;
     // }
   }
@@ -134,7 +134,7 @@ export default {
       font-size: 22px;
     }
   }
-  .login-form {
+  .register-form {
     padding: 30px;
     padding-bottom: 0;
   }

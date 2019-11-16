@@ -33,3 +33,15 @@ export function get () {
     }
   })
 }
+
+
+export function getcount () {
+  return request({
+    url: `/node/Masternode/GetCount?userid=${store.state.user.userid}&token=${store.state.user.token}`,
+    params: {
+      /*coinname,
+      mnkey,
+      externalip*/
+    }
+  })
+}

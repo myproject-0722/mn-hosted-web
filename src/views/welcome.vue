@@ -1,47 +1,20 @@
 <template>
 
   <div class="dashboard-editor-container">
-
     <panel-group/>
-
-    <el-row :gutter="8">
-      <el-col :xs="24" :sm="24" :lg="16">
-        <div class="chart-wrapper">
-          <chart width="100%" />
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <pie-chart />
-        </div>
-      </el-col>
-    </el-row>
-  <!--
-    <el-row :gutter="8">
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 12}" :xl="{span: 12}" style="padding-right:8px;margin-bottom:30px;">
-        <transaction-table />
-      </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <todo-list />
-      </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <box-card />
-      </el-col>
-    </el-row> -->
+    <panel-wallet/>
   </div>
 
 </template>
 <script>
-import PanelGroup from '@/components/PanelGroup'
-import Chart from '@/components/LineMarker'
-import PieChart from '@/components/PieChart'
+import PanelGroup from '@/components/MasterNodeCount'
+import PanelWallet from '@/components/wallet'
 
 export default {
 
   components: {
     PanelGroup,
-    Chart,
-    PieChart
+    PanelWallet
   },
   data () {
     return {

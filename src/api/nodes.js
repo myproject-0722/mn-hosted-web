@@ -14,7 +14,7 @@ export function nodePage (currPage, pageSize, param, status, step) {
 
 export function coinPage (currPage, pageSize, param, status, step) {
   return request({
-    url: `/node/Coinlist/Get?curpage=${currPage}&pagesize=${pageSize}`,
+    url: `/node/Masternode/GetCoinList?curpage=${currPage}&pagesize=${pageSize}`,
     params: {
       status,
       step

@@ -33,9 +33,11 @@ router.beforeEach((to, from, next) => {
   // console.log(store.state)
   if (token || to.path === '/login') {
     next()
-  } else if (!token && to.path !== '/login') {
-    next({ name: 'login' })
+  } else if (!token && (to.path !== '/login' && to.path !== '/register' && to.path !== '/welcome')) {
+    //next({ name: 'login' })
+    next()
   }
+  next()
 })
 
 // register global utility filters

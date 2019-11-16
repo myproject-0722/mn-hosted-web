@@ -1,8 +1,9 @@
-import { login, logout } from '@/api/user'
+import { login, register, logout } from '@/api/user'
 
 const state = {
   userid: 0,
-  token: ''
+  token: '',
+  address: '',
 }
 
 const mutations = {
@@ -11,6 +12,9 @@ const mutations = {
   },
   SET_TOKEN: (state, token) => {
     state.token = token
+  },
+  SET_ADDRESS: (state, address) => {
+    state.address = address
   },
   logout: (state) => {
     state.token = ''
@@ -31,6 +35,41 @@ const actions = {
           commit('SET_USERID', res.id)
           commit('SET_TOKEN', res.token)
           return resolve(res.token)
+        } else {
+          return reject(res.msg)
+        }
+      })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
+
+  register ({ commit }, { username, password }) {
+    return new Promise((resolve, reject) => {
+      register(username, password).then(res => {
+        console.log(res)
+        if (res.rescode === 200) {
+          commit('SET_USERID', res.id)
+          commit('SET_TOKEN', res.token)
+          return resolve(res.token)
+        } else {
+          return reject(res.msg)
+        }
+      })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
+
+  getinfo ({ commit }, { }) {
+    return new Promise((resolve, reject) => {
+      getinfo().then(res => {
+        console.log(res)
+        if (res.rescode === 200) {
+          commit('SET_ADDRESS', res.address)
+          return resolve(res.address, res.mncount)
         } else {
           return reject(res.msg)
         }
