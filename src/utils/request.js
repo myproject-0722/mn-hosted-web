@@ -19,6 +19,7 @@ service.interceptors.request.use(
   config => {
     // console.log(config)
     config.headers['token'] = store.getters.token
+    config.headers['Authorization'] = store.getters.token
     // config.headers['adminToken'] = '2191941b86c745e8bec75ca833202dbc';
     //config.headers = _kongAuth(config.headers)
     //config.headers['Access-Control-Allow-Origin'] = 'http://192.168.0.157:8000/'
