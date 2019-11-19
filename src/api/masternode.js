@@ -3,7 +3,7 @@ import store from '@/store'
 
 export function create (coinname, mnkey, timetype, externalip) {
   return request({
-    url: `/node/Masternode/New?userid=${store.state.user.userid}&token=${store.state.user.token}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}`,
+    url: `/node/Masternode/New?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}`,
     params: {
       /*coinname,
       mnkey,
@@ -14,7 +14,7 @@ export function create (coinname, mnkey, timetype, externalip) {
 
 export function renew (coinname, mnkey, timetype, externalip) {
   return request({
-    url: `/node/Masternode/Renew?userid=${store.state.user.userid}&token=${store.state.user.token}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}&timenum=1`,
+    url: `/node/Masternode/Renew?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}&timenum=1`,
     params: {
       /*coinname,
       mnkey,
@@ -25,7 +25,7 @@ export function renew (coinname, mnkey, timetype, externalip) {
 
 export function get () {
   return request({
-    url: `/node/Masternode/Get?userid=${store.state.user.userid}&token=${store.state.user.token}`,
+    url: `/node/Masternode/Get?userid=${store.state.user.userid}`,
     params: {
       /*coinname,
       mnkey,
@@ -37,7 +37,7 @@ export function get () {
 
 export function getcount () {
   return request({
-    url: `/node/Masternode/GetCount?userid=${store.state.user.userid}&token=${store.state.user.token}`,
+    url: `/node/Masternode/GetCount?userid=${store.state.user.userid}`,
     params: {
       /*coinname,
       mnkey,

@@ -42,7 +42,6 @@ export function register (account, passwd) {
 export function getinfo () {
   const data = {
     'userid': store.state.user.userid,
-    'token': store.state.user.token
   };
 
   return request({
