@@ -1,4 +1,4 @@
-import { login, register, logout } from '@/api/user'
+import { login, register, mailcode, reset, logout } from '@/api/user'
 
 const state = {
   userid: 0,
@@ -53,6 +53,42 @@ const actions = {
           commit('SET_USERID', res.id)
           commit('SET_TOKEN', res.token)
           return resolve(res.token)
+        } else {
+          return reject(res.msg)
+        }
+      })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
+
+  mailcode ({ commit }, { username }) {
+    return new Promise((resolve, reject) => {
+      mailcode(username).then(res => {
+        console.log(res)
+        if (res.rescode === 200) {
+          //commit('SET_USERID', res.id)
+          //commit('SET_TOKEN', res.token)
+          return resolve(res.rescode)
+        } else {
+          return reject(res.msg)
+        }
+      })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
+
+  reset ({ commit }, { username, password, authcode }) {
+    return new Promise((resolve, reject) => {
+      reset(username, password, authcode ).then(res => {
+        console.log(res)
+        if (res.rescode === 200) {
+          //commit('SET_USERID', res.id)
+          //commit('SET_TOKEN', res.token)
+          return resolve(res.rescode)
         } else {
           return reject(res.msg)
         }

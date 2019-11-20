@@ -40,6 +40,9 @@
                   <el-form-item>
                     没有账号?<el-link :href="'/' + 'register'" type="primary">注册</el-link>
                   </el-form-item>
+                  <el-form-item>
+                    忘记密码?<el-link :href="'/' + 'forget'" type="primary">重置</el-link>
+                  </el-form-item>
                 </el-form>
               </div>
             </div>
@@ -61,7 +64,7 @@ export default {
     return {
       labelPosition: 'left',
       loginForm: {
-        username: 'lixu',
+        username: 'lixu123@yeah.net',
         password: '123456'
       },
       rules: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="register">
+  <div class="forget">
     <div class="container">
       <el-row>
         <el-col :span="10">
@@ -26,16 +26,13 @@
                   <span>久零主节点托管平台</span>
                 </div>
               </div>
-              <div class="register-form">
-                <el-form ref="ruleForm" :model="registerForm" :rules="rules">
+              <div class="forget-form">
+                <el-form ref="ruleForm" :model="forgetForm" :rules="rules">
                   <el-form-item prop="username">
-                    <el-input v-model="registerForm.username" placeholder="请输入注册邮箱" @blur="inputUserName"></el-input>
-                  </el-form-item>
-                  <el-form-item prop="password">
-                    <el-input type="password" v-model="registerForm.password" placeholder="请输入密码" @keydown.enter.native="register_btn"></el-input>
+                    <el-input v-model="forgetForm.username" placeholder="请输入账户邮箱"></el-input>
                   </el-form-item>
                   <el-form-item class="btn">
-                    <el-button type="success" style="width:100%;" @click="register_btn">注册</el-button>
+                    <el-button type="success" style="width:100%;" @click="forget_btn">下一步</el-button>
                   </el-form-item>
                   <el-form-item>
                     已有账号?<el-link :href="'/' + 'login'" type="primary">登录</el-link>
@@ -60,52 +57,32 @@ export default {
   data () {
     return {
       labelPosition: 'left',
-      registerForm: {
-        username: '',
-        password: ''
+      forgetForm: {
+        username: ''
       },
       rules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
-        ],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+          { required: true, message: '请输入账号', trigger: 'blur' }
+        ]
       }
     }
   },
   methods: {
-    inputUserName: function() {
-      var regEmail = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-      //var regEmail = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-      if (this.registerForm.username != '' && !regEmail.test(this.registerForm.username)) {
-        this.$message({
-          message: '邮箱格式不正确',
-          type: 'error'
-        })
-        this.registerForm.username = ''
-      }
-    },
-
-    register_btn () {
-      if(this.registerForm.username == '' || this.registerForm.password == '')
-      {
-        this.$message.error('注册失败，密码和账号不能为空')
-        return
-      }
+    forget_btn () {
       this.$store
-        .dispatch('user/register', this.registerForm)
+        .dispatch('user/mailcode', this.forgetForm)
         .then(res => {
-          this.$message.info('注册成功，请重新登录')
-          this.$router.push({ name: 'login' })
+          this.$router.push({ name: 'reset' })
         })
         .catch(err => {
-          this.$message.error('登录失败:' + err)
+          this.$message.error('获取验证码失败:' + err)
         })
     }
   }
 }
 </script>
 <style lang="less" scope>
-.register {
+.forget {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -118,17 +95,8 @@ export default {
     bottom: 0;
     width: 900px;
     height: 400px;
-    // padding: 0px 40px 15px 40px;
     margin: auto;
     background: white;
-    // .title {
-    //   padding: 20px 0;
-    //   text-align: center;
-    //   font-size: 20px;
-    // }
-    // .register_btn {
-    //   width: 100%;
-    // }
   }
 }
 .el-row {
@@ -152,7 +120,7 @@ export default {
       font-size: 22px;
     }
   }
-  .register-form {
+  .forget-form {
     padding: 30px;
     padding-bottom: 0;
   }
