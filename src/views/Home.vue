@@ -229,8 +229,8 @@ export default {
   methods: {
     logout () {
       console.log('退出登录')
+      this.$store.dispatch('user/logout')
       this.$router.push({ name: 'login' })
-      this.$store.dispatch('user/log_out')
     },
     shrink () {
       this.isCollapse = !this.isCollapse

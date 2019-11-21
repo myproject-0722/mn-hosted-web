@@ -95,10 +95,9 @@ export function getinfo () {
   })
 }
 
-export function logout (userid, token) {
+export function logout () {
   const data = {
-    'userid': userid,
-    'token': token
+    'userid': store.state.user.userid
   };
   return request({
     url: 'user/User/SignOut',

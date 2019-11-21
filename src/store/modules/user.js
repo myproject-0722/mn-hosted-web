@@ -118,7 +118,7 @@ const actions = {
 
   // user logout
   logout ({ commit }) {
-    logout(userid, token).then(res => {
+    logout().then(res => {
       console.log(res)
       commit('SET_TOKEN', '')
     })
