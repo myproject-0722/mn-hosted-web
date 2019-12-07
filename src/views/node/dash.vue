@@ -33,9 +33,10 @@ import { create } from '@/api/masternode'
     methods: {
       onSubmit() {
         console.log('submit!');
-        create("dashcore", this.form.mnkey, this.form.expiretimetype).then(res => {
-          //alert(res.payUrl)
-          //this.$router.push({ name: res.payUrl })
+        create("dash", this.form.mnkey, this.form.expiretimetype).then(res => {
+          //this.$router.push({ name: 'home' })
+          //window.open(href, res.payUrl);
+          //this.$router.push({ name: 'home/masternodeList' })
           window.location.href =res.payUrl; //  跳转链接
         })
         .catch(err => {

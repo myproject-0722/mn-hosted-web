@@ -1,9 +1,9 @@
 import request from '@/utils/request.js'
 import store from '@/store'
 
-export function create (coinname, mnkey, timetype, externalip) {
+export function create (coinname, mnkey, timetype) {
   return request({
-    url: `/node/Masternode/New?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}`,
+    url: `/order/Order/Alipay?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&timetype=${timetype}`,
     params: {
       /*coinname,
       mnkey,
@@ -12,9 +12,10 @@ export function create (coinname, mnkey, timetype, externalip) {
   })
 }
 
-export function renew (coinname, mnkey, timetype, externalip) {
+export function renew (coinname, mnkey, timetype) {
   return request({
-    url: `/node/Masternode/Renew?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}&timenum=1`,
+    //url: `/node/Masternode/Renew?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}&timenum=1`,
+    url: `/order/Order/Alipay?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&timetype=${timetype}&isrenew=1`,
     params: {
       /*coinname,
       mnkey,

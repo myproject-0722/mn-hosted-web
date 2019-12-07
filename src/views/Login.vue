@@ -64,8 +64,8 @@ export default {
     return {
       labelPosition: 'left',
       loginForm: {
-        username: 'lixu123@yeah.net',
-        password: '123456'
+        username: '',
+        password: ''
       },
       rules: {
         username: [

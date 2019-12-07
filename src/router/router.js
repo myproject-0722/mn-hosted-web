@@ -26,6 +26,8 @@ import sysParameter from '@/views/sys/sysParameter'
 import coinsList from '@/views/node/coinsList'
 import masternodeList from '@/views/node/masternodeList'
 import dashcore from '@/views/node/dashcore'
+import dash from '@/views/node/dash'
+import alipay from '@/views/node/alipay'
 
 import orderList from '@/views/sale/orderList'
 
@@ -134,6 +136,16 @@ var router = new Vuerouter({
           name: 'dashcore',
           path: '/home/dashcore',
           component: dashcore
+        },
+        {
+          name: 'dash',
+          path: '/home/dash',
+          component: dash
+        },
+        {
+          name: 'alipay',
+          path: '/home/alipay',
+          component: alipay
         },
         {
           name: 'masternodeList',

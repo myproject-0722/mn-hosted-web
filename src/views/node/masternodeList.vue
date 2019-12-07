@@ -53,8 +53,9 @@ export default {
 
     onRenewDay(coinName, mnkey) {
       console.log('submit!');
-      renew(coinName, mnkey, "1", "192.168.0.197").then(res => {
+      renew(coinName, mnkey, "1").then(res => {
         //this.$router.push({ name: 'home' })
+        window.location.href =res.payUrl; //  跳转链接
       })
       .catch(err => {
         this.$message.error('续期失败:' + err)
@@ -63,8 +64,9 @@ export default {
 
     onRenewMonth(coinName, mnkey) {
       console.log('submit!');
-      renew(coinName, mnkey, "2", "192.168.0.197").then(res => {
+      renew(coinName, mnkey, "2").then(res => {
         //this.$router.push({ name: 'home' })
+        window.location.href =res.payUrl; //  跳转链接
       })
       .catch(err => {
         this.$message.error('续期失败:' + err)
@@ -73,8 +75,9 @@ export default {
 
     onRenewYear(coinName, mnkey) {
       console.log('submit!');
-      renew(coinName, mnkey, "2", "192.168.0.197").then(res => {
+      renew(coinName, mnkey, "3").then(res => {
         //this.$router.push({ name: 'home' })
+        window.location.href =res.payUrl; //  跳转链接
       })
       .catch(err => {
         this.$message.error('续期失败:' + err)
