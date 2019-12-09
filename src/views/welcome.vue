@@ -2,7 +2,6 @@
 
   <div class="dashboard-editor-container">
     <panel-group/>
-    <panel-wallet/>
   </div>
 
 </template>
