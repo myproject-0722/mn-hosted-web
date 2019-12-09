@@ -29,7 +29,7 @@
               <div class="login-form">
                 <el-form ref="ruleForm" :model="loginForm" :rules="rules">
                   <el-form-item prop="username">
-                    <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+                    <el-input v-model="loginForm.username" placeholder="请输入邮箱"></el-input>
                   </el-form-item>
                   <el-form-item prop="password">
                     <el-input type="password" v-model="loginForm.password" placeholder="请输入密码" @keydown.enter.native="login_btn"></el-input>
@@ -69,7 +69,7 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
+          { required: true, message: '请输入邮箱', trigger: 'blur' }
         ],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
       }
