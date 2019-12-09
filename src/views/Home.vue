@@ -22,7 +22,7 @@
 
           <div class="title">
             <span>
-              <span class="titleInfo">久零</span> 主节点管理
+              <span class="titleInfo">久零主节点托管平台</span>
             </span>
           </div>
         </div>
@@ -119,7 +119,7 @@
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>个人中心</el-dropdown-item>
+              <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
               <el-dropdown-item @click.native="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>

@@ -3,11 +3,11 @@
 
     <!-- 列表展示 -->
     <el-table v-loading="tbLoading" :data="coinsList" border style="width: 100%; margin-top:5px">
-      <el-table-column prop="coinName" label="coinName"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MNRequired" label="主节点质押费用"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="DPrice" label="托管费用(天)" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MPrice" label="托管费用(月)" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="YPrice" label="托管费用(年)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="coinName" label="币种"  align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MNRequired" label="主节点质押费用(数字货币)"  align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="DPrice" label="日托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MPrice" label="月托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="YPrice" label="年托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
       <!-- <el-table-column prop="volume" label="volume" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="roi" label="收益率" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="monthlyIncome" label="月收益" align="center" :show-overflow-tooltip='true'></el-table-column>

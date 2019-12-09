@@ -27,6 +27,8 @@ import coinsList from '@/views/node/coinsList'
 import masternodeList from '@/views/node/masternodeList'
 import dashcore from '@/views/node/dashcore'
 import dash from '@/views/node/dash'
+import vds from '@/views/node/vds'
+import snowgem from '@/views/node/snowgem'
 import alipay from '@/views/node/alipay'
 
 import orderList from '@/views/sale/orderList'
@@ -141,6 +143,16 @@ var router = new Vuerouter({
           name: 'dash',
           path: '/home/dash',
           component: dash
+        },
+        {
+          name: 'vds',
+          path: '/home/vds',
+          component: vds
+        },
+        {
+          name: 'snowgem',
+          path: '/home/snowgem',
+          component: snowgem
         },
         {
           name: 'alipay',
