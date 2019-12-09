@@ -37,11 +37,13 @@
                   <el-form-item class="btn">
                     <el-button type="success" style="width:100%;" @click="login_btn">登录</el-button>
                   </el-form-item>
+                </el-form>
+                <el-form :label-position="labelPosition" label-width="80px">
                   <el-form-item>
-                    没有账号?<el-link :href="'/' + 'register'" type="primary">注册</el-link>
+                    没有账号? <el-link :href="'/' + 'register'" type="primary">请点击注册</el-link>
                   </el-form-item>
-                  <el-form-item>
-                    忘记密码?<el-link :href="'/' + 'forget'" type="primary">重置</el-link>
+                  <el-form-item :label-position="right" :label-width="formLabelWidth">
+                    忘记密码? <el-link :href="'/' + 'forget'" type="primary">请点击重置</el-link>
                   </el-form-item>
                 </el-form>
               </div>
@@ -102,7 +104,7 @@ export default {
     top: 0;
     bottom: 0;
     width: 900px;
-    height: 400px;
+    height: 500px;
     // padding: 0px 40px 15px 40px;
     margin: auto;
     background: white;

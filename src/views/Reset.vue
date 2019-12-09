@@ -43,8 +43,10 @@
                   <el-form-item class="btn">
                     <el-button type="success" style="width:100%;" @click="reset_btn">重置密码</el-button>
                   </el-form-item>
+                </el-form>
+                <el-form :label-position="labelPosition" label-width="80px">
                   <el-form-item>
-                    已有账号?<el-link :href="'/' + 'login'" type="primary">登录</el-link>
+                    已有账号? <el-link :href="'/' + 'login'" type="primary">请点击登录</el-link>
                   </el-form-item>
                 </el-form>
               </div>
