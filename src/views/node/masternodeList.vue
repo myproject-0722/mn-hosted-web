@@ -3,14 +3,19 @@
 
     <!-- 列表展示 -->
     <el-table v-loading="tbLoading" :data="masternodeList" border style="width: 100%; margin-top:5px">
-      <el-table-column prop="coinName" label="CoinName"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MNKey" label="MNKey"  align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="coinName" label="币种"  align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MNID" label="ID"  align="center" :show-overflow-tooltip='true'></el-table-column>
+      <!-- <el-table-column prop="MNKey" label="MNKey"  align="center" :show-overflow-tooltip='true'></el-table-column> -->
+      <el-table-column prop="MNPayee" label="支付地址"  align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="SyncStatus" label="同步状态" :formatter="syncStateFormat"></el-table-column>
+      <el-table-column prop="MNStatus" label="主节点状态" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="vps" label="地址" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="earn" label="收益(当前币种)" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="createTime" label="创建时间" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="expireTime" label="到期时间" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column label="续期" min-width="250" align="center" :show-overflow-tooltip='true'>
+      <el-table-column label="续期" min-width="160" align="center" :show-overflow-tooltip='true'>
         <template slot-scope="scope">
-          <el-button type="primary" @click="onRenewDay(scope.row.coinName, scope.row.MNKey)">一天</el-button>
+          <!-- <el-button type="primary" @click="onRenewDay(scope.row.coinName, scope.row.MNKey)">一天</el-button> -->
           <el-button type="primary" @click="onRenewMonth(scope.row.coinName, scope.row.MNKey)">一月</el-button>
           <el-button type="primary" @click="onRenewYear(scope.row.coinName, scope.row.MNKey)">一年</el-button>
           <!-- <el-link :href="'/home/'+scope.row.coinName+''" type="primary">添加{{scope.row.coinName}}主节点</el-link> -->
