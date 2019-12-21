@@ -1,35 +1,58 @@
 <template>
-  <el-row :gutter="40" class="panel-wallet">
-    您的支付地址(dashcore-testnet): {{address}}  余额为: {{balance}} (可从http://test.faucet.masternode.io/获取)
+  <el-row :gutter="40" class="panel-payout">
+    订单数量/总支出
+    <el-col :xs="12" :sm="12" :lg="6" class="card-payout-col">
+      <div class="card-payout">
+        <!-- <div class="card-payout-icon-wrapper icon-message">
+          <i class="iconfont icon-gonggongyinyongmokuai home-icon" ></i>
+        </div> -->
+        <div class="card-payout-description">
+          <div class="card-payout-text">
+            订单数量/总支出
+          </div>
+          <CountTo :startVal='0' :endVal='num' :duration='2000' class="card-payout-num"></CountTo>
+          /
+          <CountTo :startVal='0' :endVal='payout' :duration='2000' :decimals='2' class="card-payout-num"></CountTo>
+          <!-- 您拥有的主节点数量: {{nodeCount}} -->
+        </div>
+      </div>
+    </el-col>
   </el-row>
 </template>
 
 <script>
 import CountTo from 'vue-count-to'
-import { getinfo } from '@/api/user'
+import { getorderinfo } from '@/api/order'
 export default {
   components: {
     CountTo
   },
   data () {
     return {
-      address: '',
-      balance: 0
+      num: 0,
+      payout: 0.1
     }
   },
   methods: {
     init () {
-      getinfo().then(res => {
+      getorderinfo().then(res => {
         if (res) {
-          if (res.balance === undefined) {
+          if (res.num === undefined) {
             //this.$message.error('getcount:' + 0)
-            this.balance = 0
+            this.num = 0
+            return
           }
+
+          if (res.payout === undefined) {
+            this.payout = 0
+            return
+          }
+
           else {
-            this.balance = res.balance
-            //this.$message.error('getcount:' + res.count)
+            this.num = res.num
+            this.payout = res.payout
+            //this.$message.error('getcount:' + res.payout)
           }
-          this.address = res.walletAddress
         }
       })
     }
@@ -44,12 +67,12 @@ export default {
 .home-icon{
   font-size: 50px;
 }
-.panel-wallet {
+.panel-payout {
   margin-top: 18px;
-  .card-panel-col {
+  .card-payout-col {
     margin-bottom: 32px;
   }
-  .card-panel {
+  .card-payout {
     height: 108px;
     font-size: 12px;
     position: relative;
@@ -90,7 +113,7 @@ export default {
     .icon-shopping {
       color: #34bfa3
     }
-    .card-panel-icon-wrapper {
+    .card-payout-icon-wrapper {
       // font-size: 50px;
       float: left;
       margin: 14px 0 0 14px;
@@ -98,29 +121,29 @@ export default {
       transition: all 0.38s ease-out;
       border-radius: 6px;
     }
-    .card-panel-icon {
+    .card-payout-icon {
       float: left;
       font-size: 48px;
     }
-    .card-panel-description {
+    .card-payout-description {
       float: right;
       font-weight: bold;
       margin: 26px;
       margin-left: 0px;
-      .card-panel-text {
+      .card-payout-text {
         line-height: 18px;
         color: rgba(0, 0, 0, 0.45);
         font-size: 16px;
         margin-bottom: 12px;
       }
-      .card-panel-num {
+      .card-payout-num {
         font-size: 20px;
       }
     }
   }
 }
 @media (max-width:550px) {
-  .card-panel-description {
+  .card-payout-description {
     display: none;
   }
   .card-panel-icon-wrapper {

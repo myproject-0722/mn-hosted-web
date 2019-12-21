@@ -36,6 +36,18 @@ export function get () {
 }
 
 
+export function getrewardslist () {
+  return request({
+    url: `/node/Masternode/GetCoinRewards?userid=${store.state.user.userid}`,
+    params: {
+      /*coinname,
+      mnkey,
+      externalip*/
+    }
+  })
+}
+
+
 export function getcount () {
   return request({
     url: `/node/Masternode/GetCount?userid=${store.state.user.userid}`,

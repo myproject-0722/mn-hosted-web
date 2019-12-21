@@ -1,19 +1,60 @@
 <template>
   <el-row :gutter="40" class="panel-group">
-    您拥有的主节点数量: {{nodeCount}}
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+      <div class="card-panel">
+        <div class="card-panel-icon-wrapper icon-shopping">
+          <i class="iconfont icon-biaodan home-icon" ></i>
+        </div>
+        <div class="card-node-description">
+          <div class="card-panel-text">
+            订单数量
+          </div>
+          <CountTo :start-val="0" :end-val="orderNum" :duration="2000" class="card-panel-num" />
+        </div>
+      </div>
+    </el-col>
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+      <div class="card-panel">
+        <div class="card-panel-icon-wrapper icon-people">
+          <i class="iconfont icon-shujutigonglaiyuan home-icon" ></i>
+        </div>
+        <div class="card-node-description">
+          <div class="card-panel-text">
+            总支出(￥)
+          </div>
+          <count-to :start-val="0" :end-val="payout" :duration="2000" :decimals='2' class="card-panel-num" />
+        </div>
+      </div>
+    </el-col>
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+      <div class="card-panel">
+        <div class="card-panel-icon-wrapper icon-message">
+          <i class="iconfont icon-gonggongyinyongmokuai home-icon" ></i>
+        </div>
+        <div class="card-node-description">
+          <div class="card-panel-text">
+            主节点数量
+          </div>
+          <CountTo :startVal='0' :endVal='nodeCount' :duration='2000' class="card-panel-num" />
+        </div>
+      </div>
+    </el-col>
   </el-row>
 </template>
 
 <script>
 import CountTo from 'vue-count-to'
 import { getcount } from '@/api/masternode'
+import { getorderinfo } from '@/api/order'
 export default {
   components: {
     CountTo
   },
   data () {
     return {
-      nodeCount: 0
+      nodeCount: 0,
+      orderNum: 0,
+      payout: 0
     }
   },
   methods: {
@@ -27,6 +68,26 @@ export default {
           else {
             this.nodeCount = res.count
             //this.$message.error('getcount:' + res.count)
+          }
+        }
+      })
+      getorderinfo().then(res => {
+        if (res) {
+          if (res.num === undefined) {
+            //this.$message.error('getcount:' + 0)
+            this.orderNum = 0
+            return
+          }
+
+          if (res.payout === undefined) {
+            this.payout = 0
+            return
+          }
+
+          else {
+            this.orderNum = res.num
+            this.payout = res.payout
+            //this.$message.error('getcount:' + res.payout)
           }
         }
       })
@@ -49,7 +110,7 @@ export default {
   }
   .card-panel {
     height: 108px;
-    font-size: 12px;
+    font-size: 24px;
     position: relative;
     overflow: hidden;
     color: #666;
@@ -77,8 +138,8 @@ export default {
       color: #40c9c6;
     }
     .icon-people:before {
-    content: "";
-}
+      content: "";
+    }
     .icon-message {
       color: #36a3f7;
     }
@@ -100,7 +161,7 @@ export default {
       float: left;
       font-size: 48px;
     }
-    .card-panel-description {
+    .card-node-description {
       float: right;
       font-weight: bold;
       margin: 26px;
@@ -118,7 +179,7 @@ export default {
   }
 }
 @media (max-width:550px) {
-  .card-panel-description {
+  .card-node-description {
     display: none;
   }
   .card-panel-icon-wrapper {

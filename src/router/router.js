@@ -31,8 +31,6 @@ import vds from '@/views/node/vds'
 import snowgem from '@/views/node/snowgem'
 import alipay from '@/views/node/alipay'
 
-import orderList from '@/views/sale/orderList'
-
 Vue.use(Vuerouter)
 
 // 解决点击路由跳转相同地址 会有报错的问题，ui组件版本问题
@@ -163,11 +161,6 @@ var router = new Vuerouter({
           name: 'masternodeList',
           path: '/home/masternodeList',
           component: masternodeList
-        },
-        {
-          name: 'orderList',
-          path: '/home/orderList',
-          component: orderList
         },
         {
           name: 'fundAccount',

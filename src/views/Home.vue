@@ -22,7 +22,7 @@
 
           <div class="title">
             <span>
-              <span class="titleInfo">久零主节点托管平台</span>
+              <span class="titleInfo">主节点托管平台</span>
             </span>
           </div>
         </div>

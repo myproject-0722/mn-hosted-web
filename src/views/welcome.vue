@@ -2,18 +2,24 @@
 
   <div class="dashboard-editor-container">
     <panel-group/>
+    主节点收益
+    <RewardsList/>
+    订单列表
+    <OrderList/>
   </div>
 
 </template>
 <script>
 import PanelGroup from '@/components/MasterNodeCount'
-import PanelWallet from '@/components/wallet'
+import OrderList from '@/components/OrderList'
+import RewardsList from '@/components/RewardsList'
 
 export default {
 
   components: {
     PanelGroup,
-    PanelWallet
+    OrderList,
+    RewardsList
   },
   data () {
     return {
