@@ -6,8 +6,8 @@
       <el-table-column prop="ID" label="ID"  align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="coinName" label="币种"  align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="price" label="订单价格"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="timeType" label="订单时间类型"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="Status" label="状态"  align="center" :show-overflow-tooltip='true'></el-table-column>
+      <!-- <el-table-column prop="timeType" label="订单时间类型"  align="center" :show-overflow-tooltip='true'></el-table-column> -->
+      <el-table-column prop="Status" label="状态"  align="center" :formatter="syncStateFormat"></el-table-column>
       <el-table-column prop="createTime" label="订单时间"  align="center" :show-overflow-tooltip='true'></el-table-column>
     </el-table>
   </div>
@@ -55,7 +55,17 @@ export default {
         this.orderList = res.orderList
         this.total = res.orderList.length
       })
-    }
+    },
+    syncStateFormat(row, column) {
+      if (row.Status === 0) {
+        return '未支付'
+      }
+      else if (row.Status === 1) {
+        return '支付完成'
+      } else  {
+        return '完成'
+      } 
+    },
   },
   mounted () {
     this.init()
