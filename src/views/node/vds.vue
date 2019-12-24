@@ -32,13 +32,16 @@
 </template>
 
 <script>
-import { create } from '@/api/masternode'
+import { createVds } from '@/api/masternode'
 
   export default {
     data() {
       return {
         form: {
+          name: '',
           mnkey: '',
+          txid: '',
+          txindex: '',
           expiretimetype: ''
         }
       }
@@ -46,7 +49,7 @@ import { create } from '@/api/masternode'
     methods: {
       onSubmit() {
         console.log('submit!');
-        create("vds", this.form.mnkey, this.form.expiretimetype).then(res => {
+        createVds(this.form.name, this.form.mnkey, this.form.txid, this.form.txindex, this.form.expiretimetype).then(res => {
           //this.$router.push({ name: 'home' })
           //window.open(href, res.payUrl);
           //this.$router.push({ name: 'home/masternodeList' })
