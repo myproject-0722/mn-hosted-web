@@ -12,6 +12,17 @@ export function create (coinname, mnkey, timetype) {
   })
 }
 
+export function createVds (name, mnkey, txid, txindex, timetype) {
+  return request({
+    url: `/order/Order/Alipay?userid=${store.state.user.userid}&coinname=vds&mnname=${name}&mnkey=${mnkey}&txid=${txid}&txindex=${txindex}&timetype=${timetype}`,
+    params: {
+      /*coinname,
+      mnkey,
+      externalip*/
+    }
+  })
+}
+
 export function renew (coinname, mnkey, timetype) {
   return request({
     //url: `/node/Masternode/Renew?userid=${store.state.user.userid}&coinname=${coinname}&mnkey=${mnkey}&externalip=${externalip}&timetype=${timetype}&timenum=1`,
