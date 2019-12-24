@@ -10,7 +10,7 @@
       <el-table-column prop="SyncStatus" label="同步状态" :formatter="syncStateFormat"></el-table-column>
       <el-table-column prop="MNStatus" label="主节点状态" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="vps" label="地址" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="earn" label="收益(当前币种)" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="earn" label="收益(当前币种)" align="center" :formatter="dataFormat" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="createTime" label="创建时间" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="expireTime" label="到期时间" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column label="续期" min-width="160" align="center" :show-overflow-tooltip='true'>
@@ -55,6 +55,12 @@ export default {
     }
   },
   methods: {
+    dataFormat(row, column) {
+      if (row.earn === undefined) {
+        return '0'
+      }
+      return row.earn
+    },
 
     onRenewDay(coinName, mnkey) {
       console.log('submit!');

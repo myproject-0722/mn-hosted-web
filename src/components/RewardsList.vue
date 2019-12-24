@@ -5,7 +5,7 @@
     <el-table v-loading="tbLoading" :data="rewardsList" border style="width: 100%; margin-top:5px">
       <el-table-column prop="coinName" label="币种"  align="center" :show-overflow-tooltip='true'/>
       <el-table-column prop="MNCount" label="主节点数"  align="center" :show-overflow-tooltip='true'/>
-      <el-table-column prop="rewards" label="收益(当前币种)"  align="center" :show-overflow-tooltip='true'/>
+      <el-table-column prop="rewards" label="收益(当前币种)"  align="center" :formatter="dataFormat" :show-overflow-tooltip='true'/>
     </el-table>
   </div>
 </template>
@@ -37,6 +37,13 @@ export default {
     handleCurrentChange (val) {
       this.currentPage = val
       this.init()
+    },
+
+    dataFormat(row, column) {
+      if (row.rewards === undefined) {
+        return '0'
+      }
+      return row.rewards
     },
 
     // 条件搜索
