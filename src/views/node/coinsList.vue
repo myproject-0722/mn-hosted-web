@@ -10,8 +10,8 @@
       <el-table-column prop="YPrice" label="年托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
       <!-- <el-table-column prop="volume" label="volume" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="roi" label="收益率" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="monthlyIncome" label="月收益" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MNHosted" label="主节点托管数" align="center" :show-overflow-tooltip='true'></el-table-column> -->
+      <el-table-column prop="monthlyIncome" label="月收益" align="center" :show-overflow-tooltip='true'></el-table-column>-->
+      <el-table-column prop="MNHosted" label="当前主节点托管数" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column label="" min-width="250" align="center">
         <template slot-scope="scope">
           <el-link :href="'/home/'+scope.row.coinName+''" type="primary">添加{{scope.row.coinName}}主节点</el-link>
