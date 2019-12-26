@@ -2,18 +2,18 @@
   <div>
 
     <!-- 列表展示 -->
-    <el-table v-loading="tbLoading" :data="masternodeList" border style="width: 100%; margin-top:5px">
-      <el-table-column prop="coinName" label="币种"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="MNID" label="ID"  align="center" :show-overflow-tooltip='true'></el-table-column>
+    <el-table v-loading="tbLoading" :data="masternodeList" :default-sort="{prop: 'MNID', order: 'ascending'}" border style="width: 100%; margin-top:5px">
+      <el-table-column prop="coinName" label="币种" min-width="45" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MNID" label="ID" min-width="25" align="center"></el-table-column>
       <!-- <el-table-column prop="MNKey" label="MNKey"  align="center" :show-overflow-tooltip='true'></el-table-column> -->
-      <el-table-column prop="MNPayee" label="支付地址"  align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="SyncStatus" label="同步状态" :formatter="syncStateFormat"></el-table-column>
+      <el-table-column prop="MNPayee" label="收益地址(payoutAddress)" min-width="180" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="SyncStatus" label="同步状态" min-width="45" :formatter="syncStateFormat"></el-table-column>
       <el-table-column prop="MNStatus" label="主节点状态" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="vps" label="地址" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="earn" label="收益(当前币种)" align="center" :formatter="dataFormat" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="vps" label="地址" min-width="100" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="earn" label="收益(当前币种)" min-width="40" align="center" :formatter="dataFormat" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="createTime" label="创建时间" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="expireTime" label="到期时间" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column label="续期" min-width="160" align="center" :show-overflow-tooltip='true'>
+      <el-table-column label="续期" min-width="100" align="center" :show-overflow-tooltip='true'>
         <template slot-scope="scope">
           <!-- <el-button type="primary" @click="onRenewDay(scope.row.coinName, scope.row.MNKey)">一天</el-button> -->
           <el-button type="primary" @click="onRenewMonth(scope.row.coinName, scope.row.MNKey)">一月</el-button>
@@ -21,9 +21,9 @@
           <!-- <el-link :href="'/home/'+scope.row.coinName+''" type="primary">添加{{scope.row.coinName}}主节点</el-link> -->
         </template>
       </el-table-column>
-      <el-table-column label="修改" min-width="60" align="center" :show-overflow-tooltip='true'>
+      <el-table-column label="信息修改" min-width="60" align="center" :show-overflow-tooltip='true'>
         <template slot-scope="scope">
-          <el-button type="primary" @click="onModify(scope.row.coinName, scope.row.MNID)">信息修改</el-button>
+          <el-button type="primary" @click="onModify(scope.row.coinName, scope.row.MNID)">修改</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -60,6 +60,12 @@ export default {
     }
   },
   methods: {
+    sortByID(obj1, obj2) {
+      let val1 = obj1.ID
+      let val2 = obj2.ID
+      return val1 > val2
+    },
+
     dataFormat(row, column) {
       if (row.earn === undefined) {
         return '0'
