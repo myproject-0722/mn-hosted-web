@@ -29,6 +29,9 @@ import dashcore from '@/views/node/dashcore'
 import dash from '@/views/node/dash'
 import vds from '@/views/node/vds'
 import snowgem from '@/views/node/snowgem'
+import modifyDash from '@/views/node/modifyDash'
+import modifyVds from '@/views/node/modifyVds'
+import modifySnowgem from '@/views/node/modifySnowgem'
 import alipay from '@/views/node/alipay'
 
 Vue.use(Vuerouter)
@@ -151,6 +154,21 @@ var router = new Vuerouter({
           name: 'snowgem',
           path: '/home/snowgem',
           component: snowgem
+        },
+        {
+          name: 'modifyDash',
+          path: '/home/modifyDash',
+          component: modifyDash
+        },
+        {
+          name: 'modifyVds',
+          path: '/home/modifyVds',
+          component: modifyVds
+        },
+        {
+          name: 'modifySnowgem',
+          path: '/home/modifySnowgem',
+          component: modifySnowgem
         },
         {
           name: 'alipay',

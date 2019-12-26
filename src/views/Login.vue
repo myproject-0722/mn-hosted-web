@@ -42,7 +42,7 @@
                   <el-form-item>
                     没有账号? <el-link :href="'/' + 'register'" type="primary">请点击注册</el-link>
                   </el-form-item>
-                  <el-form-item :label-position="right" :label-width="formLabelWidth">
+                  <el-form-item>
                     忘记密码? <el-link :href="'/' + 'forget'" type="primary">请点击重置</el-link>
                   </el-form-item>
                 </el-form>

@@ -81,3 +81,39 @@ export function getcount () {
     }
   })
 }
+
+
+export function modifyDash (mnid, mnkey) {
+  return request({
+    url: `/node/Masternode/Modify?userid=${store.state.user.userid}&mnid=${mnid}&mnkey=${mnkey}`,
+    params: {
+      /*coinname,
+      mnkey,
+      externalip*/
+    }
+  })
+}
+
+
+export function modifyVds (mnid, name, mnkey, txid, txindex) {
+  return request({
+    url: `/node/Masternode/Modify?userid=${store.state.user.userid}&mnid=${mnid}&name=${name}&mnkey=${mnkey}&txid=${txid}&txindex=${txindex}`,
+    params: {
+      /*coinname,
+      mnkey,
+      externalip*/
+    }
+  })
+}
+
+
+export function modifySnowgem (mnid, name, mnkey, txid, txindex) {
+  return request({
+    url: `/node/Masternode/Modify?userid=${store.state.user.userid}&mnid=${mnid}&name=${name}&mnkey=${mnkey}&txid=${txid}&txindex=${txindex}`,
+    params: {
+      /*coinname,
+      mnkey,
+      externalip*/
+    }
+  })
+}

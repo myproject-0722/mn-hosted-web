@@ -20,7 +20,12 @@
           <el-button type="primary" @click="onRenewYear(scope.row.coinName, scope.row.MNKey)">一年</el-button>
           <!-- <el-link :href="'/home/'+scope.row.coinName+''" type="primary">添加{{scope.row.coinName}}主节点</el-link> -->
         </template>
-      </el-table-column> -->
+      </el-table-column>
+      <el-table-column label="修改" min-width="60" align="center" :show-overflow-tooltip='true'>
+        <template slot-scope="scope">
+          <el-button type="primary" @click="onModify(scope.row.coinName, scope.row.MNID)">信息修改</el-button>
+        </template>
+      </el-table-column>
     </el-table>
 
     <!-- 分页 -->
@@ -93,6 +98,35 @@ export default {
       .catch(err => {
         this.$message.error('续期失败:' + err)
       })
+    },
+
+    onModify(coinName, mnid) {
+      console.log('submit!');
+      if (coinName == 'dash') {
+        this.$router.push({
+          path:'./modifydash',
+          query:{
+            mnId:mnid
+          },
+        })
+      }
+      else if (coinName == 'vds') {
+        this.$router.push({
+          path:'./modifyvds',
+          query:{
+            mnId:mnid
+          },
+        })
+      }
+      else if (coinName == 'snowgem') {
+        this.$router.push({
+          path:'./modifysnowgem',
+          query:{
+            mnId:mnid
+          },
+        })
+      }
+      
     },
 
     syncStateFormat(row, column) {
