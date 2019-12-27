@@ -42,6 +42,7 @@
 </template>
 <script>
 import { get } from '@/api/masternode'
+import { getcount } from '@/api/masternode'
 import { renew } from '@/api/masternode'
 
 export default {
@@ -160,10 +161,20 @@ export default {
     // 列表展示
     init () {
       this.tbLoading = true
-      get().then(res => {
+      get(this.currentPage, this.pageSize).then(res => {
         this.tbLoading = false
         this.masternodeList = res.masternodelist
-        this.total = this.masternodeList.length
+        //this.total = 6 //this.masternodeList.length
+      })
+      getcount().then(res => {
+        if (res) {
+          if (res.count === undefined) {
+            this.total = 0
+          }
+          else {
+            this.total = res.count
+          }
+        }
       })
     }
   },

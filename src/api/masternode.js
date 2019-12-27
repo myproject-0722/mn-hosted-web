@@ -47,9 +47,9 @@ export function renew (coinname, mnkey, timetype) {
   })
 }
 
-export function get () {
+export function get (currPage, pageSize) {
   return request({
-    url: `/node/Masternode/Get?userid=${store.state.user.userid}`,
+    url: `/node/Masternode/Get?userid=${store.state.user.userid}&curpage=${currPage}&pagesize=${pageSize}`,
     params: {
       /*coinname,
       mnkey,
