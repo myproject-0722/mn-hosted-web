@@ -8,7 +8,7 @@
       <!-- <el-table-column prop="MNKey" label="MNKey"  align="center" :show-overflow-tooltip='true'></el-table-column> -->
       <el-table-column prop="MNPayee" label="收益地址(payoutAddress)" min-width="180" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="SyncStatus" label="同步状态" min-width="45" :formatter="syncStateFormat"></el-table-column>
-      <el-table-column prop="MNStatus" label="主节点状态" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="MNStatus" label="主节点状态" :formatter="mnStateFormat"></el-table-column>
       <el-table-column prop="vps" label="地址" min-width="100" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="earn" label="收益(当前币种)" min-width="40" align="center" :formatter="dataFormat" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="createTime" label="创建时间" align="center" :show-overflow-tooltip='true'></el-table-column>
@@ -143,6 +143,15 @@ export default {
         return '进行中'
       } 
     },
+
+    mnStateFormat(row, column) {
+      if (row.Status === 2) {
+        return '已过期'
+      } else  {
+        return row.MNStatus
+      } 
+    },
+
     handleSizeChange (val) {
       this.currentPage = 1
       this.pageSize = val
