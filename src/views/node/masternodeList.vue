@@ -138,7 +138,7 @@ export default {
 
     syncStateFormat(row, column) {
       if (row.SyncStatus === 1) {
-        return '完成'
+        return row.SyncStatusEx
       } else  {
         return '进行中'
       } 
