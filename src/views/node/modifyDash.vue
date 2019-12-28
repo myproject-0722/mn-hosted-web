@@ -43,14 +43,11 @@ import { modifyDash } from '@/api/masternode'
       onSubmit() {
         console.log('submit!');
         modifyDash(this.mnid, this.form.mnkey).then(res => {
-          console.log(res);
-          //this.$router.push({ name: 'home' })
-          //window.open(href, res.payUrl);
-          //this.$router.push({ name: 'home/masternodeList' })
-          //window.location.href =res.payUrl; //  跳转链接
+          this.$message.info('修改成功!')
+          this.$router.push({path:'/home/masternodeList'})
         })
         .catch(err => {
-          this.$message.error('登录失败:' + err)
+          this.$message.error('修改失败:' + err)
         })
       }
     }

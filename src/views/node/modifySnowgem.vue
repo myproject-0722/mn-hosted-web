@@ -58,6 +58,7 @@ import { modifySnowgem } from '@/api/masternode'
         console.log('submit!');
         modifySnowgem(this.mnid, this.form.name, this.form.mnkey, this.form.txid, this.form.txindex).then(res => {
           this.$message.info('修改成功!')
+          this.$router.push({path:'/home/masternodeList'})
         })
         .catch(err => {
           this.$message.error('修改失败:' + err)
