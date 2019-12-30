@@ -8,8 +8,8 @@
       <el-table-column prop="DPrice" label="日托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="MPrice" label="月托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="YPrice" label="年托管费用(￥)" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <!-- <el-table-column prop="volume" label="volume" align="center" :show-overflow-tooltip='true'></el-table-column>
-      <el-table-column prop="roi" label="收益率" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <el-table-column prop="volume" label="总收益(当前币种)" :formatter="volumeFormat" align="center" :show-overflow-tooltip='true'></el-table-column>
+      <!-- <el-table-column prop="roi" label="收益率" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="monthlyIncome" label="月收益" align="center" :show-overflow-tooltip='true'></el-table-column>-->
       <el-table-column prop="MNHosted" label="当前主节点托管数" :formatter="mnhostedFormat" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column label="" min-width="250" align="center">
@@ -69,6 +69,14 @@ export default {
     handleCurrentChange (val) {
       this.currentPage = val
       this.init()
+    },
+    volumeFormat(row, column) {
+      if (row.volume) {
+        return row.volume / 1000000
+      }
+      else  {
+        return 0
+      } 
     },
     mnhostedFormat(row, column) {
       if (row.MNHosted) {
