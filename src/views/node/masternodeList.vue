@@ -3,7 +3,7 @@
 
     <!-- 列表展示 -->
     <!-- <el-table v-loading="tbLoading" :data="masternodeList" :default-sort="{prop: 'MNID', order: 'ascending'}" border style="width: 100%; margin-top:5px"> -->
-    <el-table v-loading="tbLoading" :data="masternodeList" border style="width: 100%; margin-top:5px">
+    <el-table v-loading="tbLoading" :data="masternodeList" :row-class-name="tableRowClassName" border style="width: 100%; margin-top:5px">
       <el-table-column prop="coinName" label="币种" min-width="45" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="MNID" label="ID" min-width="25" align="center"></el-table-column>
       <!-- <el-table-column prop="MNKey" label="MNKey"  align="center" :show-overflow-tooltip='true'></el-table-column> -->
@@ -24,7 +24,7 @@
       </el-table-column>
       <el-table-column label="信息修改" min-width="60" align="center" :show-overflow-tooltip='true'>
         <template slot-scope="scope">
-          <el-button type="primary" @click="onModify(scope.row.coinName, scope.row.MNID)">修改</el-button>
+          <el-button type="primary" :disabled="scope.row.Status == 2" @click="onModify(scope.row.coinName, scope.row.MNID)">修改</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -62,6 +62,14 @@ export default {
     }
   },
   methods: {
+    //标红table第一行
+    tableRowClassName({row, rowIndex}) {
+      if (row.Status === 2 || row.MNStatus == 'POSE_BANNED') {
+        return 'warning-row';
+      }
+      return '';
+    },
+
     sortByID(obj1, obj2) {
       let val1 = obj1.ID
       let val2 = obj2.ID
@@ -193,5 +201,10 @@ export default {
   }
 }
 </script>
+<!-- <style lang="less" scoped> -->
 <style lang="less" scoped>
+/deep/.el-table .warning-row {
+    //background: oldlace;
+    background: DarkSalmon
+  }
 </style>
