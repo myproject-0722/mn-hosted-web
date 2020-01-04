@@ -64,9 +64,14 @@ export default {
   methods: {
     //标红table第一行
     tableRowClassName({row, rowIndex}) {
-      if (row.Status === 2 || row.MNStatus == 'POSE_BANNED') {
+      if (row.MNStatus == 'POSE_BANNED') {
         return 'warning-row';
       }
+
+      if (row.Status === 2) {
+        return 'sliver-row';
+      }
+      
       return '';
     },
 
@@ -206,5 +211,12 @@ export default {
 /deep/.el-table .warning-row {
     //background: oldlace;
     background: DarkSalmon
+  }
+/deep/.el-table .sliver-row {
+    //background: oldlace;
+    background: silver
+  }
+/deep/.el-table .other-row {
+    background: lightcyan
   }
 </style>
