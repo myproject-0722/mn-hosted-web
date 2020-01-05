@@ -6,9 +6,9 @@
   </el-form-item>
   <el-form-item>
     <el-select v-model="form.expiretimetype" placeholder="请选择有效期">
-      <el-option label="一天" value="1"></el-option>
-      <el-option label="一个月" value="2"></el-option>
-      <el-option label="一年" value="3"></el-option>
+      <el-option label="一天" value="1">一天 (需要花费￥:{{dprice}}元)</el-option>
+      <el-option label="一个月" value="2">一月 (需要花费￥:{{mprice}}元)</el-option>
+      <el-option label="一年" value="3">一年天 (需要花费￥:{{yprice}}元)</el-option>
     </el-select>
   </el-form-item>
   <el-form-item>
@@ -21,6 +21,7 @@
 
 <script>
 import { create } from '@/api/masternode'
+import { getCoinInfo } from '@/api/nodes'
 
   export default {
     data() {
@@ -28,7 +29,10 @@ import { create } from '@/api/masternode'
         form: {
           mnkey: '',
           expiretimetype: ''
-        }
+        },
+        dprice: 0.0,
+        mprice: 0.0,
+        yprice: 0.0
       }
     },
     methods: {
@@ -43,7 +47,18 @@ import { create } from '@/api/masternode'
         .catch(err => {
           this.$message.error('登录失败:' + err)
         })
+      },
+      // 获取初始信息
+      init () {
+        getCoinInfo("dash").then(res => {
+          this.dprice = res.coin.DPrice
+          this.mprice = res.coin.MPrice
+          this.yprice = res.coin.YPrice
+        })
       }
+    },
+    mounted () {
+      this.init()
     }
   }
 </script>

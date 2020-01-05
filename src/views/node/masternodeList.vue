@@ -3,7 +3,7 @@
 
     <!-- 列表展示 -->
     <!-- <el-table v-loading="tbLoading" :data="masternodeList" :default-sort="{prop: 'MNID', order: 'ascending'}" border style="width: 100%; margin-top:5px"> -->
-    <el-table v-loading="tbLoading" :data="masternodeList" :row-class-name="tableRowClassName" border style="width: 100%; margin-top:5px">
+    <el-table v-loading="tbLoading" :data="masternodeList" :row-class-name="tableRowColor" border style="width: 100%; margin-top:5px">
       <el-table-column prop="coinName" label="币种" min-width="45" align="center" :show-overflow-tooltip='true'></el-table-column>
       <el-table-column prop="MNID" label="ID" min-width="25" align="center"></el-table-column>
       <!-- <el-table-column prop="MNKey" label="MNKey"  align="center" :show-overflow-tooltip='true'></el-table-column> -->
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     //标红table第一行
-    tableRowClassName({row, rowIndex}) {
+    tableRowColor({row, rowIndex}) {
       if (row.MNStatus == 'POSE_BANNED') {
         return 'warning-row';
       }

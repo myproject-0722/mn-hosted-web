@@ -10,3 +10,12 @@ export function coinPage (currPage, pageSize, param, status, step) {
     }
   })
 }
+
+
+export function getCoinInfo (coinname) {
+  return request({
+    url: `/node/Masternode/GetCoinInfo?coinname=${coinname}`,
+    params: {
+    }
+  })
+}
