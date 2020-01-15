@@ -27,6 +27,11 @@
           <el-button type="primary" :disabled="scope.row.Status == 2" @click="onModify(scope.row.coinName, scope.row.MNID)">修改</el-button>
         </template>
       </el-table-column>
+      <el-table-column label="是否接受通知" min-width="60" align="center" :show-overflow-tooltip='true'>
+        <template slot-scope="scope">
+          <el-switch v-model="scope.row.IsNotify" active-text="是" inactive-text="否" @change="changeNotice($event, scope.row)"></el-switch>
+        </template>
+      </el-table-column>
     </el-table>
 
     <!-- 分页 -->
@@ -45,6 +50,7 @@
 import { get } from '@/api/masternode'
 import { getcount } from '@/api/masternode'
 import { renew } from '@/api/masternode'
+import { changeNotify } from '@/api/masternode'
 
 export default {
   data () {
@@ -58,10 +64,22 @@ export default {
       input: '',
       currentPage: 1,
       pageSize: 10,
-      total: 0
+      total: 0,
+      aaaa: true
     }
   },
   methods: {
+
+    changeNotice(value, row) {
+      //this.$message.error('通知修改:' + value + ' ' + row.MNID)
+      changeNotify(row.MNID, value).then(res => {
+        this.$message.info('修改成功!')
+      })
+      .catch(err => {
+        this.$message.error('修改失败:' + err)
+      })
+    },
+
     //标红table第一行
     tableRowColor({row, rowIndex}) {
       if (row.MNStatus == 'POSE_BANNED') {

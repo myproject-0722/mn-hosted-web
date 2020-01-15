@@ -82,6 +82,13 @@ export function getcount () {
   })
 }
 
+export function changeNotify (mnid, isnotify) {
+  return request({
+    url: `/node/Masternode/ChangeNotify?userid=${store.state.user.userid}&mnid=${mnid}&isnotify=${isnotify}`,
+    params: {
+    }
+  })
+}
 
 export function modifyDash (mnid, mnkey) {
   return request({
